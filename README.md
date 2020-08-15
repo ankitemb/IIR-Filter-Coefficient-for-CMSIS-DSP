@@ -13,7 +13,7 @@ The script compute coefficients for IIR filter implemented as [Biquad Cascade II
 
 # Example Usage
   
-See the [iir coefficient generator examples]() for use of example. After running example, you will get coefficient in form which is required in CMSIS DSP library.
+See the [iir coefficient generator examples](https://github.com/ac1215/IIR-Filter-Coefficient-for-CMSIS-DSP/blob/master/iir_filter_coeffs_usage.txt) for use of example. After running example, you will get coefficient in form which is required in CMSIS DSP library.
   
 CMSIS DSP Library expects coefficient in second order section digital filter manner:
 ```
