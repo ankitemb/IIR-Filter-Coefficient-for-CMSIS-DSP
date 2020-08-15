@@ -5,6 +5,12 @@ IIR filter implementation on ARM Cortex cores requires coefficient while using C
 The script compute coefficients for IIR filter implemented as [Biquad Cascade IIR Filters Using Direct Form I Structure](https://www.keil.com/pack/doc/CMSIS/DSP/html/group__BiquadCascadeDF1.html) and [Biquad Cascade IIR Filters Using a Direct Form II Transposed Structure](https://www.keil.com/pack/doc/CMSIS/DSP/html/group__BiquadCascadeDF2T.html). ARM's [CMSIS DSP](https://www.keil.com/pack/doc/CMSIS/DSP/html/index.html) library IIR filter implementation can run efficiently and optimally on ARM Coretx cores with floating point data.
   
   
+#Supporting IIR Filters
+1. Butterworth Filter (Lowpass, Highpass, Bandpass and Bandstop)  
+2. Chebyshev-1 Filter (Lowpass, Highpass, Bandpass and Bandstop)  
+3. Bessel Filter (Lowpass and Highpass)  
+4. Elliptic Filter (Lowpass, Highpass, Bandpass and Bandstop)  
+
 # Example Usage
   
 See the [iir coefficient generator examples]() for use of example. After running example, you will get coefficient in form which is required in CMSIS DSP library.
