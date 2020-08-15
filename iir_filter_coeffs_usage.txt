@@ -1,7 +1,7 @@
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 > Example 1
-> 3rd Order Highpass filter, 5000 Hz, Sampling Frequency = 44.1 kHz
-//////////////////////////////////////////////////////////////////////
+> 3rd Order Butterworth Highpass filter, 5000 Hz, Sampling Frequency = 44.1 kHz
+/////////////////////////////////////////////////////////////////////////////////
 
 pkg load signal
 iir_filter = "butter"
@@ -9,3 +9,27 @@ order = 3
 fs = 44100
 fc = 5000
 ft = 'high'
+plot_on = 1
+
+iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
+#################################################################################
+
+/////////////////////////////////////////////////////////////////////////////////
+> Example 2
+> 5th Order Elliptic Lowpass filter, 25 Hz, Sampling Frequency = 500 Hz
+> Passband Ripple = 0.001 dB, Stopband attenuation = 80 dB
+/////////////////////////////////////////////////////////////////////////////////
+
+pkg load signal
+iir_filter = "elliptic"
+order = 5
+fs = 500
+fc = 25
+ft = 'low'
+plot_on = 0
+
+iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
+
+Note: For elliptic filter passband ripple and stopband  attenuation value asking
+      interactively to user.
+#################################################################################
