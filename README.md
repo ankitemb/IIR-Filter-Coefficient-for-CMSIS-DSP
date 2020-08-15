@@ -59,9 +59,9 @@ int main()
     arm_biquad_cascade_df2T_init_f32(&S, NUM_STAGE_IIR, &iirCoeffs[0], &iirState[0]);
     
     for (k = 0; k < NUMBLOCKS; k++)
-	  {
-		    arm_biquad_cascade_df2T_f32 (&S, InputValuesf32_ptr + (k*BLOCKSIZE), OutputValuesf32_ptr + (k*BLOCKSIZE), BLOCKSIZE);    // perform filtering 
-	  }
+    {
+	arm_biquad_cascade_df2T_f32 (&S, InputValuesf32_ptr + (k*BLOCKSIZE), OutputValuesf32_ptr + (k*BLOCKSIZE), BLOCKSIZE);    // perform filtering
+    }
     
     while(1);
 }
