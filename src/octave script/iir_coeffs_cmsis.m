@@ -74,15 +74,19 @@ function iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
   
   %Getting series second order coeffs from numerator and denominator polynomials
   [sos] = tf2sos(b, a);
+  
   %Making coeffs ready to use in the CMSIS library of ARM
   % Numerator polynomials - b0 b1 b2
   % Denominator polynomials - a0 a1 a2
   % a0 is always 1. So, a0 is not required in CMSIS library.
   % Compute biquad coefficient
   coeffs = sos(:,[1 2 3 5 6]); % removed a0 from sos.
+  
   % CMSIS expect a1 and a2 negated
   coeffs(:,4) = -coeffs(:,4);
   coeffs(:,5) = -coeffs(:,5);
+  
+  % Making coefficient linear
   coeffs = coeffs';
   coeffs = coeffs(:);
   
@@ -93,7 +97,7 @@ function iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
     plot(w/pi, 20 * log10(abs(h)), ";;")
     xlabel("Frequency");
     ylabel("abs(H[W])[dB]");
-    axis([0, 1, -80, 0]);
+    axis([0, 1, -120, 0]);
     
     % Generating three dataset for mixed signal
     data = [[1; zeros(fs-1, 1)], [ones(fs, 1)], sinetone(fc / 2, fs, 1, 1), sinetone(fc, fs, 1, 1), sinetone(fc * 2, fs, 1, 1)];
