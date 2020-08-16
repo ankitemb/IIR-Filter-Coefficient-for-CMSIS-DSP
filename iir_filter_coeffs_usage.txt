@@ -30,6 +30,61 @@ plot_on = 0
 
 iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
 
-Note: For elliptic filter passband ripple and stopband  attenuation value asking
-      interactively to user.
+Note: For elliptic filter passband ripple and stopband attenuation value needs to
+      provide runtime by user.
+#################################################################################
+
+/////////////////////////////////////////////////////////////////////////////////
+> Example 3
+> 4th Order Chebyshev-1 Bandpass filter, fc1=4 kHz, fc2=8 kHz
+> Sampling Frequency = 20 kHz, Passband Ripple = 0.5 dB
+/////////////////////////////////////////////////////////////////////////////////
+
+pkg load signal
+iir_filter = "chebyshev"
+order = 4
+fs = 20000
+fc = [4000 8000]
+ft = 'pass'
+plot_on = 1
+
+iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
+
+Note: For chebyshev filter passband ripple value needs toprovide runtime by user.
+#################################################################################
+
+/////////////////////////////////////////////////////////////////////////////////
+> Example 4
+> 6th Order Butterworth Bandstop filter, fc1=3 kHz, fc2=9 kHz
+> Sampling Frequency = 20 kHz
+/////////////////////////////////////////////////////////////////////////////////
+
+pkg load signal
+iir_filter = "butter"
+order = 6
+fs = 20000
+fc = [3000 9000]
+ft = 'stop'
+plot_on = 1
+
+iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
+
+#################################################################################
+
+
+/////////////////////////////////////////////////////////////////////////////////
+> Example 5
+> 2nd Order Bessel Highpass filter, fc=3 kHz, Sampling Frequency = 10 kHz
+/////////////////////////////////////////////////////////////////////////////////
+
+pkg load signal
+iir_filter = "bessel"
+order = 2
+fs = 10000
+fc = 3000
+ft = 'high'
+plot_on = 1
+
+iir_coeffs_cmsis(iir_filter, order, fs, fc, ft, plot_on)
+
 #################################################################################
